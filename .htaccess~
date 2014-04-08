@@ -1,0 +1,17 @@
+#this controls the directory listing of directory and sub directories
+#this is used to hide directory listing from public
+
+#Options -Indexes
+
+
+#now code for rewriting the engine
+RewriteEngine On
+
+#rewrite condition for directory files and listing
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+
+#rewrite url for changing url settings
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
